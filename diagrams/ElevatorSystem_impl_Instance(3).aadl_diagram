@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="ASCII"?>
+<diagram:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:diagram="http://osate.org/diagram" formatVersion="7">
+  <element uuid="3459309c-6aa2-4e46-ab43-b5592a219b7e" manual="true">
+    <element uuid="98d111ed-0126-406d-acd5-ab83f81f6370" manual="true">
+      <element uuid="2fbca8ae-1331-4d87-8ed6-a6436be53833" manual="true" dockArea="right">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>bus_access</seg>
+        </bo>
+        <position x="142.43997955322266" y="64.0"/>
+      </element>
+      <element uuid="0d0b58a9-92ef-4c8b-af3b-fe57dac02e21" manual="true" dockArea="right">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>button_press</seg>
+        </bo>
+        <position x="129.4666519165039" y="10.0"/>
+      </element>
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>component_instance</seg>
+        <seg>button_panel</seg>
+      </bo>
+      <position x="50.0" y="299.99999999999994"/>
+      <size width="223.75997924804688" height="119.99999999999994"/>
+    </element>
+    <element uuid="ca1564ed-0f30-423c-a1f7-82023f536ef7" manual="true">
+      <element uuid="e66c8f23-714f-404e-8258-a1635540ac8d" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>receive_button_press</seg>
+        </bo>
+        <position y="10.0"/>
+      </element>
+      <element uuid="4d0f36ee-c1b4-4049-b5b6-e2a3b7c08f50" manual="true" dockArea="right">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>send_button_data</seg>
+        </bo>
+        <position x="364.7466583251953" y="10.0"/>
+      </element>
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>component_instance</seg>
+        <seg>buttonPanelController</seg>
+      </bo>
+      <position x="310.0" y="130.0"/>
+      <size width="489.2799835205078" height="64.0"/>
+    </element>
+    <element uuid="7d91d485-9331-4ce4-9744-d4b32c2f9d4a" manual="true">
+      <element uuid="ecd0a06e-3040-41cd-8bac-e5c433ad5987" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>door_close</seg>
+        </bo>
+        <position y="118.0"/>
+      </element>
+      <element uuid="3385fc75-61c1-4532-8dbd-1b03dee529ce" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>door_open</seg>
+        </bo>
+        <position y="64.0"/>
+      </element>
+      <element uuid="6149fc9d-91c1-4e91-b555-751786c88e2e" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>door_state</seg>
+        </bo>
+        <position y="10.0"/>
+      </element>
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>component_instance</seg>
+        <seg>cabin</seg>
+      </bo>
+      <position x="2160.0" y="340.0"/>
+      <size width="245.33333587646484" height="172.0"/>
+    </element>
+    <element uuid="6a2b36b1-07cb-4d90-a9e5-5fe1cbaf9a7f" manual="true">
+      <element uuid="65fd9684-1d8a-4201-abd3-2a5dae159da1" manual="true" dockArea="right">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>door_close</seg>
+        </bo>
+        <position x="399.9200210571289" y="118.0"/>
+      </element>
+      <element uuid="caaac84e-7f61-43ed-a57e-2b4a65779d17" manual="true" dockArea="right">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>door_open</seg>
+        </bo>
+        <position x="399.70668029785156" y="64.0"/>
+      </element>
+      <element uuid="d286db89-39a4-40da-83b2-ce1c84872679" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>receive_door_command</seg>
+        </bo>
+        <position y="64.0"/>
+      </element>
+      <element uuid="2e97b4ea-7eea-47f3-aa03-79ab2ba51bb3" manual="true" dockArea="right">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>receive_door_state</seg>
+        </bo>
+        <position x="350.1200180053711" y="10.0"/>
+      </element>
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>component_instance</seg>
+        <seg>cabinController</seg>
+      </bo>
+      <position x="1550.0" y="329.99999999999994"/>
+      <size width="479.49334716796875" height="172.0"/>
+    </element>
+    <element uuid="3d8dbda0-2a48-46c0-9f67-b365228ec51c" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>component_instance</seg>
+        <seg>can_bus</seg>
+      </bo>
+      <position x="590.0000000000001" y="530.0"/>
+      <size width="102.86666107177734" height="40.0"/>
+    </element>
+    <element uuid="6cc80781-156d-43d2-9fad-da6e04baf36f" manual="true">
+      <element uuid="b18b8931-5ab5-47a9-8867-9bd501b8e3b7" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>action_receive</seg>
+        </bo>
+        <position y="28.0"/>
+      </element>
+      <element uuid="dd9de9f1-a1e5-4c5e-9ef4-a1a35ba24644" manual="true" dockArea="right">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>bus_access</seg>
+        </bo>
+        <position x="308.5866470336914" y="118.0"/>
+      </element>
+      <element uuid="c3c4cf42-932e-49eb-ac25-5f740f7ac899" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>door_command</seg>
+        </bo>
+        <position y="100.0"/>
+      </element>
+      <element uuid="ab64e9ad-095d-4bef-b80f-dbcc35fe8494" manual="true" dockArea="right">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>motor_command</seg>
+        </bo>
+        <position x="269.74664306640625" y="64.0"/>
+      </element>
+      <element uuid="a29554ec-d3bc-4883-922e-9c70b85af5e7" manual="true" dockArea="right">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>motor_state_receive</seg>
+        </bo>
+        <position x="251.4533233642578" y="10.0"/>
+      </element>
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>component_instance</seg>
+        <seg>controller</seg>
+      </bo>
+      <position x="920.0" y="379.99999999999994"/>
+      <size width="389.9066467285156" height="172.0"/>
+    </element>
+    <element uuid="67587ca6-dc98-480c-adc8-e3586c4dd5c8" manual="true">
+      <element uuid="a4eb6510-b08e-4f9a-adf4-7ea38a28f575" manual="true" dockArea="right">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>canBusAccess</seg>
+        </bo>
+        <position x="173.86665725708008" y="10.0"/>
+      </element>
+      <element uuid="2b4202f0-e5e0-40eb-89eb-e38e6643c230" manual="true" dockArea="right">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>hwcAccess</seg>
+        </bo>
+        <position x="194.15997695922852" y="64.0"/>
+      </element>
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>component_instance</seg>
+        <seg>cpu</seg>
+      </bo>
+      <position x="150.0" y="650.0"/>
+      <size width="272.89331436157227" height="118.0"/>
+    </element>
+    <element uuid="ddd55941-a551-40f7-b099-0c901d280aa6" manual="true">
+      <element uuid="9518d42e-bb22-4f42-9c5b-6a7b116efbd8" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>display_input</seg>
+        </bo>
+        <position y="10.0"/>
+      </element>
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>component_instance</seg>
+        <seg>display</seg>
+      </bo>
+      <position x="1990.1466064453125" y="42.0"/>
+      <size width="285.54665756225586" height="64.0"/>
+    </element>
+    <element uuid="9f79585f-b837-4ce0-a9a7-c043a8e55eb0" manual="true">
+      <element uuid="4277ada8-46c0-4787-a267-0796b1c60dcf" manual="true" dockArea="right">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>display_output</seg>
+        </bo>
+        <position x="314.4000015258789" y="10.0"/>
+      </element>
+      <element uuid="a6e4f7bf-7e5a-4ad4-91f3-2deffefccdaa" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>receive_floor_data</seg>
+        </bo>
+        <position y="10.0"/>
+      </element>
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>component_instance</seg>
+        <seg>displayController</seg>
+      </bo>
+      <position x="1493.9132957458496" y="42.0"/>
+      <size width="418.6399917602539" height="64.0"/>
+    </element>
+    <element uuid="8ec01dd3-5ea8-465a-bde7-57b5e4094f47" manual="true">
+      <element uuid="be6eb84d-6b25-45ec-a6f6-e176dd8c9889" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>receive_button_data</seg>
+        </bo>
+        <position y="118.0"/>
+      </element>
+      <element uuid="983aff44-84c3-4125-9fea-20dd2688cf1d" manual="true" dockArea="right">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>receive_motor_state_data</seg>
+        </bo>
+        <position x="378.9333190917969" y="64.0"/>
+      </element>
+      <element uuid="06b80010-9be4-4ed2-9708-505396eb1123" manual="true" dockArea="right">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>send_action</seg>
+        </bo>
+        <position x="464.5733108520508" y="226.0"/>
+      </element>
+      <element uuid="afe9455e-7d4b-4a32-92e1-2e56079c1945" manual="true" dockArea="right">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>send_door_command</seg>
+        </bo>
+        <position x="403.9333038330078" y="172.0"/>
+      </element>
+      <element uuid="69fdcf5c-0340-4c9f-983a-edb51c425c8a" manual="true" dockArea="right">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>send_floor_data</seg>
+        </bo>
+        <position x="439.45330810546875" y="10.0"/>
+      </element>
+      <element uuid="1980ee1f-88b6-4108-88b7-dc264b38a5a5" manual="true" dockArea="right">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>send_motor_state_data</seg>
+        </bo>
+        <position x="393.2666473388672" y="118.0"/>
+      </element>
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>component_instance</seg>
+        <seg>elevatorLogicController</seg>
+      </bo>
+      <position x="865.0399780273438" y="42.0"/>
+      <size width="551.2799682617188" height="280.0"/>
+    </element>
+    <element uuid="414c8065-9fef-4eb5-830d-fa87d6bf2937" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>component_instance</seg>
+        <seg>hwc</seg>
+      </bo>
+      <position x="1010.0000000000001" y="770.0000000000001"/>
+      <size width="77.11999893188477" height="35.0"/>
+    </element>
+    <element uuid="cfd87683-902d-44ad-89fd-7c5717c7bcf6" manual="true">
+      <element uuid="a8061817-fc02-44b2-a853-9b6910908d4f" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>motor_command_receive</seg>
+        </bo>
+        <position y="64.0"/>
+      </element>
+      <element uuid="06602414-95bb-42cc-a924-37f67d960fea" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>motor_state</seg>
+        </bo>
+        <position y="10.0"/>
+      </element>
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>component_instance</seg>
+        <seg>motor</seg>
+      </bo>
+      <position x="1660.0" y="610.0"/>
+      <size width="432.4400215148926" height="118.0"/>
+    </element>
+    <element uuid="b6817227-7eb1-4936-a4fa-3b946a0a5fad" manual="true">
+      <element uuid="7a5cdfcd-b1a6-424e-89d3-b22f5e0deac6" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>receive_motor_state</seg>
+        </bo>
+        <position y="64.0"/>
+      </element>
+      <element uuid="e462a298-97ea-4510-8514-a9330f02c439" manual="true" dockArea="left">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>send_current_motor_state</seg>
+        </bo>
+        <position y="10.0"/>
+      </element>
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>component_instance</seg>
+        <seg>motorController</seg>
+      </bo>
+      <position x="1750.0" y="170.0"/>
+      <size width="513.8266906738281" height="118.0"/>
+    </element>
+    <element uuid="be602f5e-bb15-4db0-bc33-b9b3e8f3771d" manual="true">
+      <element uuid="0a7eeea9-ca98-464c-9c8e-5489c30e3c16" manual="true" dockArea="right">
+        <bo>
+          <seg>org.osate.ge.diagrams.instance</seg>
+          <seg>feature_instance</seg>
+          <seg>hwcAccess</seg>
+        </bo>
+        <position x="156.18667030334473" y="10.0"/>
+      </element>
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>component_instance</seg>
+        <seg>ram</seg>
+      </bo>
+      <position x="680.0" y="630.0"/>
+      <size width="234.92000770568848" height="64.0"/>
+    </element>
+    <element uuid="2df6a248-7a40-47e5-90d7-15cb9729f065" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>c1 : ElevatorSystem_impl_Instance.button_panel.bus_access -> ElevatorSystem_impl_Instance.can_bus</seg>
+      </bo>
+      <bendpoints>
+        <point x="-133.0" y="396.0"/>
+      </bendpoints>
+    </element>
+    <element uuid="596cabca-c88f-473c-9379-539a90b74918" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>c10 : ElevatorSystem_impl_Instance.buttonPanelController.send_button_data -> ElevatorSystem_impl_Instance.elevatorLogicController.receive_button_data</seg>
+      </bo>
+    </element>
+    <element uuid="3693d44f-5335-43b9-a021-c6728b9119f2" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>c11 : ElevatorSystem_impl_Instance.motorController.send_current_motor_state -> ElevatorSystem_impl_Instance.elevatorLogicController.receive_motor_state_data</seg>
+      </bo>
+      <bendpoints>
+        <point x="826.31982421875" y="112.0"/>
+      </bendpoints>
+    </element>
+    <element uuid="c7d967b4-94b4-47d8-8841-554fcd5a367c" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>c12 : ElevatorSystem_impl_Instance.elevatorLogicController.send_motor_state_data -> ElevatorSystem_impl_Instance.motorController.receive_motor_state</seg>
+      </bo>
+      <bendpoints>
+        <point x="826.31982421875" y="166.0"/>
+      </bendpoints>
+    </element>
+    <element uuid="1b0adc37-2da1-4e61-bc44-700ba549d0e3" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>c13 : ElevatorSystem_impl_Instance.elevatorLogicController.send_floor_data -> ElevatorSystem_impl_Instance.displayController.receive_floor_data</seg>
+      </bo>
+    </element>
+    <element uuid="31f8e067-142c-43df-b892-a9dac855c65a" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>c14 : ElevatorSystem_impl_Instance.elevatorLogicController.send_door_command -> ElevatorSystem_impl_Instance.cabinController.receive_door_command</seg>
+      </bo>
+      <bendpoints>
+        <point x="836.31982421875" y="220.0"/>
+        <point x="836.31982421875" y="334.0"/>
+      </bendpoints>
+    </element>
+    <element uuid="43638e01-60cd-44a7-9408-521d97a1af48" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>c15 : ElevatorSystem_impl_Instance.cabin.door_state -> ElevatorSystem_impl_Instance.cabinController.receive_door_state</seg>
+      </bo>
+    </element>
+    <element uuid="8829d9bc-626b-4214-9e81-26519b7721b0" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>c16 : ElevatorSystem_impl_Instance.cabinController.door_open -> ElevatorSystem_impl_Instance.cabin.door_open</seg>
+      </bo>
+    </element>
+    <element uuid="2b709030-f75f-4eda-aa52-704accf907bc" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>c17 : ElevatorSystem_impl_Instance.cabinController.door_close -> ElevatorSystem_impl_Instance.cabin.door_close</seg>
+      </bo>
+    </element>
+    <element uuid="d6969c3c-52cc-4ef8-94c8-cdf58ee3dbc8" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>c18 : ElevatorSystem_impl_Instance.displayController.display_output -> ElevatorSystem_impl_Instance.display.display_input</seg>
+      </bo>
+    </element>
+    <element uuid="6f4d5f68-e3b3-4143-853c-3682e6193282" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>c2 : ElevatorSystem_impl_Instance.button_panel.button_press -> ElevatorSystem_impl_Instance.buttonPanelController.receive_button_press</seg>
+      </bo>
+      <bendpoints>
+        <point x="-275.0" y="282.0"/>
+        <point x="-337.0" y="184.0"/>
+      </bendpoints>
+    </element>
+    <element uuid="d6594a07-1648-4db4-baef-73dd41ed9cb5" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>c3 : ElevatorSystem_impl_Instance.controller.bus_access -> ElevatorSystem_impl_Instance.can_bus</seg>
+      </bo>
+      <bendpoints>
+        <point x="801.0" y="562.0"/>
+        <point x="657.0" y="630.0"/>
+      </bendpoints>
+    </element>
+    <element uuid="48de22fb-7e85-4fc8-bc93-c88b29f8acc4" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>c4 : ElevatorSystem_impl_Instance.controller.motor_command -> ElevatorSystem_impl_Instance.motor.motor_command_receive</seg>
+      </bo>
+    </element>
+    <element uuid="ed2d6759-6b98-4c22-8d3a-c5241df5c013" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>c5 : ElevatorSystem_impl_Instance.motor.motor_state -> ElevatorSystem_impl_Instance.controller.motor_state_receive</seg>
+      </bo>
+    </element>
+    <element uuid="75edde3c-a62b-4855-8dcb-2254a085b041" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>c6 : ElevatorSystem_impl_Instance.elevatorLogicController.send_action -> ElevatorSystem_impl_Instance.controller.action_receive</seg>
+      </bo>
+      <bendpoints>
+        <point x="809.0" y="326.0"/>
+        <point x="219.0" y="336.0"/>
+      </bendpoints>
+    </element>
+    <element uuid="28db0e2f-8ed1-41ea-8e69-6ad618fcf74b" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>c7 : ElevatorSystem_impl_Instance.cpu.hwcAccess -> ElevatorSystem_impl_Instance.hwc</seg>
+      </bo>
+    </element>
+    <element uuid="e13c4a97-d2d7-4b5b-864b-a788e787d081" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>c8 : ElevatorSystem_impl_Instance.cpu.canBusAccess -> ElevatorSystem_impl_Instance.can_bus</seg>
+      </bo>
+    </element>
+    <element uuid="15a40ee3-f7a0-4bc1-a893-0043a7b2b036" manual="true">
+      <bo>
+        <seg>org.osate.ge.diagrams.instance</seg>
+        <seg>connection_reference</seg>
+        <seg>c9 : ElevatorSystem_impl_Instance.ram.hwcAccess -> ElevatorSystem_impl_Instance.hwc</seg>
+      </bo>
+    </element>
+    <bo>
+      <seg>org.osate.ge.diagrams.instance</seg>
+      <seg>system_instance</seg>
+      <seg>/elevator/instances/elevatorpkg_elevatorsystem_impl_instance.aaxl2</seg>
+    </bo>
+    <position x="-600.0" y="-30.0"/>
+    <size width="2434.586669921875" height="863.0"/>
+  </element>
+  <config type="structure" connectionPrimaryLabelsVisible="false">
+    <enabledAadlProperties/>
+    <context>
+      <seg>org.osate.ge.diagrams.instance</seg>
+      <seg>system_instance</seg>
+      <seg>/elevator/instances/elevatorpkg_elevatorsystem_impl_instance.aaxl2</seg>
+    </context>
+  </config>
+</diagram:Diagram>

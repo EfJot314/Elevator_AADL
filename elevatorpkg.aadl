@@ -1,0 +1,427 @@
+package elevatorpkg
+
+public
+
+    with SEI;
+    with Data_Model;
+    with Base_Types;
+
+    -- DATA TYPES --
+
+    data ElevatorState
+        properties
+            Data_Model::Enumerators => ("Idle", "MovingUp", "MovingDown", "DoorOpening", "DoorClosing");
+            Data_Model::base_type => (classifier (Base_Types::Integer));
+            Data_Size => 30 Bytes;
+    end ElevatorState;
+    
+    data ElevatorAction
+    end ElevatorAction;
+    
+    data implementation ElevatorAction.impl
+    	subcomponents
+    		targetFloor: data FloorNumber;
+    		direction: data MotorCommand;
+    end ElevatorAction.impl;
+
+    data FloorNumber
+        properties
+            Data_Model::base_type => (classifier (Base_Types::Unsigned_16));  
+            Data_Size => 4 Bytes;
+    end FloorNumber;
+
+    data ButtonType
+        properties
+            Data_Model::Enumerators => ("CallUp", "CallDown", "Floor");
+            Data_Model::base_type => (classifier (Base_Types::Integer));
+            Data_Size => 4 Bytes;
+    end ButtonType;
+    
+    data ButtonPress
+        properties
+            Data_Size => 8 Bytes; 
+    end ButtonPress;
+    
+    data implementation ButtonPress.impl
+    	subcomponents
+    		floor: data FloorNumber;
+    		button_type: data ButtonType;
+    end ButtonPress.impl;
+
+    data MotorCommand
+        properties
+            Data_Model::Enumerators => ("Up", "Down", "Stop");
+            Data_Model::base_type => (classifier (Base_Types::Integer));
+            Data_Size => 4 Bytes;
+    end MotorCommand;
+
+    data DoorCommand
+        properties
+            Data_Model::Enumerators => ("Open", "Close");
+            Data_Model::base_type => (classifier (Base_Types::Integer));
+            Data_Size => 4 Bytes;
+    end DoorCommand;
+
+    data DoorState
+        properties
+            Data_Model::Enumerators => ("Opened", "Closed", "Opening", "Closing");
+            Data_Model::base_type => (classifier (Base_Types::Integer));
+            Data_Size => 4 Bytes;
+    end DoorState;
+
+    -- THREADS --
+
+    thread ButtonPanelThread
+        features
+            button_press_in: in event data port ButtonPress;
+            button_data_out: out data port ButtonPress;
+        properties
+            SEI::MIPSBudget => 15.0 mips;
+    end ButtonPanelThread;
+    
+    thread implementation ButtonPanelThread.impl
+    end ButtonPanelThread.impl;
+
+    thread ElevatorLogicThread
+        features
+            button_data_in: in data port ButtonPress;
+            action_data_out: out data port ElevatorAction;
+        properties
+            SEI::MIPSBudget => 15.0 mips;
+    end ElevatorLogicThread;
+    
+    thread implementation ElevatorLogicThread.impl
+    end ElevatorLogicThread.impl;
+
+
+	thread ElevatorLogicTransformThread
+	    features
+	        action_data_in: in data port ElevatorAction;
+	        motor_state_in: in data port ElevatorState;
+	        motor_state_out: out data port MotorCommand;
+	        floor_data_out: out data port FloorNumber;
+	        door_command_out: out data port DoorCommand;
+	    properties
+	        SEI::MIPSBudget => 15.0 mips;
+	end ElevatorLogicTransformThread;
+    
+    thread implementation ElevatorLogicTransformThread.impl
+    end ElevatorLogicTransformThread.impl;
+
+    thread MotorControlThread
+        features
+            motor_state_in: in data port MotorCommand;
+            motor_state_out: out data port ElevatorState;
+            motor_command_out: out data port MotorCommand;
+        properties
+            SEI::MIPSBudget => 10.0 mips;
+    end MotorControlThread;
+    
+    thread implementation MotorControlThread.impl
+    end MotorControlThread.impl;
+
+    thread DisplayThread
+        features
+            floor_data_in: in data port FloorNumber;
+            display_output: out data port FloorNumber;
+        properties
+            SEI::MIPSBudget => 5.0 mips; 
+    end DisplayThread;
+    
+    thread implementation DisplayThread.impl
+    end DisplayThread.impl;
+
+    thread CabinControlThread
+        features
+            door_command_in: in data port DoorCommand;
+            door_state_in: in data port DoorState;
+            door_open: out event port;
+            door_close: out event port;
+        properties
+            SEI::MIPSBudget => 5.0 mips; 
+    end CabinControlThread;
+    
+    thread implementation CabinControlThread.impl
+    end CabinControlThread.impl;
+
+
+    -- PROCESSES --
+
+    process ButtonPanelController
+	    features
+	        receive_button_press: in data port ButtonPress;
+	        send_button_data: out data port ButtonPress;
+	end ButtonPanelController;
+	
+	process implementation ButtonPanelController.impl
+	    subcomponents
+	        buttonPanelThread: thread ButtonPanelThread.impl;
+	    connections
+	        c1: port receive_button_press -> buttonPanelThread.button_press_in;
+	        c2: port buttonPanelThread.button_data_out -> send_button_data;
+	end ButtonPanelController.impl;
+	
+	process ElevatorLogicController
+	    features
+	        receive_button_data: in data port ButtonPress;
+	        receive_motor_state_data: in data port ElevatorState;
+	        send_floor_data: out data port FloorNumber;
+	        send_door_command: out data port DoorCommand;
+	        send_action: out data port MotorCommand;
+	end ElevatorLogicController;
+	
+	process implementation ElevatorLogicController.impl
+	    subcomponents
+	        logicThread: thread ElevatorLogicThread.impl;
+	        transformThread: thread ElevatorLogicTransformThread.impl;
+	    connections
+	        c1: port receive_button_data -> logicThread.button_data_in;
+	        c2: port receive_motor_state_data -> transformThread.motor_state_in;
+	        c3: port logicThread.action_data_out -> transformThread.action_data_in;
+	        c5: port transformThread.floor_data_out -> send_floor_data;
+	        c6: port transformThread.door_command_out -> send_door_command;
+	        c7: port transformThread.motor_state_out -> send_action; 
+	end ElevatorLogicController.impl;
+	
+	
+	process DisplayController
+	    features
+	        receive_floor_data: in data port FloorNumber;
+	        display_output: out data port FloorNumber;
+	end DisplayController;
+	
+	process implementation DisplayController.impl
+	    subcomponents
+	        displayThread: thread DisplayThread.impl;
+	    connections
+	        c1: port receive_floor_data -> displayThread.floor_data_in;
+	        c2: port displayThread.display_output -> display_output;
+	end DisplayController.impl;
+	
+	process CabinController
+	    features
+	        receive_door_command: in data port DoorCommand;
+	        receive_door_state: in data port DoorState;
+	        door_open: out event port;
+	        door_close: out event port;
+	end CabinController;
+	
+	process implementation CabinController.impl
+	    subcomponents
+	        cabinThread: thread CabinControlThread.impl;
+	    connections
+	        c1: port receive_door_command -> cabinThread.door_command_in;
+	        c2: port receive_door_state -> cabinThread.door_state_in;
+	        c3: port cabinThread.door_open -> door_open;
+	        c4: port cabinThread.door_close -> door_close;
+	end CabinController.impl;
+	
+	process MotorController
+	    features
+	        receive_motor_command: in data port MotorCommand;
+	        send_motor_state: out data port ElevatorState;
+	end MotorController;
+	
+	process implementation MotorController.impl
+	    subcomponents
+	        motorThread: thread MotorControlThread.impl; 
+	    connections
+	        c1: port receive_motor_command -> motorThread.motor_state_in;
+	        c2: port motorThread.motor_state_out -> send_motor_state;
+	end MotorController.impl;
+
+
+    
+    -- BUSES --
+
+    bus CANBus
+        properties
+            SEI::GrossWeight => 0.075kg;
+            SEI::BandWidthCapacity => 1.0 Mbps; 
+    end CANBus;
+
+    bus implementation CANBus.impl
+    end CANBus.impl;
+
+    bus HWConnection
+        properties
+            SEI::GrossWeight => 0.075kg;
+            SEI::BandWidthCapacity => 1000.0 Mbps;
+    end HWConnection;
+
+    bus implementation HWConnection.impl
+    end HWConnection.impl;
+
+    -- MEMORY --
+
+    memory RAM
+        features
+            hwcAccess: requires bus access HWConnection;
+        properties
+            SEI::GrossWeight => 0.025kg;
+    end RAM;
+
+    memory implementation RAM.impl
+    end RAM.impl;
+    
+    -- DEVICES --
+
+    device ButtonPanel
+        features
+            button_press: out data port ButtonPress;
+            bus_access: requires bus access CANBus;
+    end ButtonPanel;
+
+    device implementation ButtonPanel.impl
+    end ButtonPanel.impl;
+
+    device Cabin
+        features
+            door_state: out data port DoorState;
+            door_open: in event port;
+            door_close: in event port;
+    end Cabin;
+
+    device implementation Cabin.impl
+    end Cabin.impl;
+
+    device Motor
+        features
+            motor_state_in: in data port ElevatorState;
+            motor_state_out: out data port ElevatorState;
+    end Motor;
+
+    device implementation Motor.impl
+    end Motor.impl;
+
+    device ElevatorController
+	    features
+	        action_receive: in data port MotorCommand;
+	        motor_command: out data port MotorCommand;
+	        motor_state_receive: in data port ElevatorState;
+	        motor_state_send: out data port ElevatorState;
+	        bus_access: requires bus access CANBus;
+	    properties
+	        SEI::GrossWeight => 0.5kg;
+	        Period => 100ms;
+	        Dispatch_Protocol => Sporadic;
+	end ElevatorController;
+
+    device implementation ElevatorController.impl
+    end ElevatorController.impl;
+
+    device Display
+        features
+            display_input: in data port FloorNumber; 
+    end Display;
+
+    device implementation Display.impl
+    end Display.impl;
+
+    -- PROCESSOR --
+
+    processor CPU
+        features
+            canBusAccess: requires bus access CANBus;
+            hwcAccess: requires bus access HWConnection;
+        properties
+            SEI::MIPSCapacity => 144.4 mips;
+            SEI::GrossWeight => 0.05kg;
+    end CPU;
+
+    processor implementation CPU.impl
+    end CPU.impl;
+    
+    
+    
+    -- SYSTEM --
+
+    system ElevatorSystem
+    end ElevatorSystem;
+
+    system implementation ElevatorSystem.impl
+        subcomponents
+            button_panel: device ButtonPanel.impl;
+            cabin: device Cabin.impl;
+            motor: device Motor.impl;
+            elevatorController: device ElevatorController.impl;
+            display: device Display.impl;
+
+            cpu: processor CPU.impl;
+            ram: memory RAM.impl;
+            can_bus: bus CANBus.impl;
+            hwc: bus HWConnection.impl;
+
+            buttonPanelController: process ButtonPanelController.impl;
+            elevatorLogicController: process ElevatorLogicController.impl;
+            displayController: process DisplayController.impl;
+            cabinController: process CabinController.impl;
+            motorController: process MotorController.impl;
+
+
+		connections
+		    -- ButtonPanel connections
+		    c1: bus access button_panel.bus_access -> can_bus;
+		    c2: port button_panel.button_press -> buttonPanelController.receive_button_press;
+		
+		    -- ElevatorController connections
+		    c3: bus access elevatorController.bus_access -> can_bus;
+		    c4: port elevatorController.motor_command -> motorController.receive_motor_command;
+		    c5: port motorController.send_motor_state -> motor.motor_state_in;
+		    c6: port motor.motor_state_out -> elevatorController.motor_state_receive;
+		    c7: port elevatorController.motor_state_send -> elevatorLogicController.receive_motor_state_data;
+		    c8: port elevatorLogicController.send_action -> elevatorController.action_receive;  
+		
+		    -- CPU connections
+		    c9: bus access cpu.hwcAccess -> hwc;
+		    c10: bus access cpu.canBusAccess -> can_bus;
+		
+		    -- RAM connection
+		    c11: bus access ram.hwcAccess -> hwc;
+		
+		    -- Process connections
+		    c12: port buttonPanelController.send_button_data -> elevatorLogicController.receive_button_data;
+		    c13: port elevatorLogicController.send_floor_data -> displayController.receive_floor_data;
+		    c14: port elevatorLogicController.send_door_command -> cabinController.receive_door_command;
+		    c15: port cabin.door_state -> cabinController.receive_door_state;
+		
+		    -- Cabin connections
+		    c16: port cabinController.door_open -> cabin.door_open;
+		    c17: port cabinController.door_close -> cabin.door_close;
+		
+		    -- Display connection
+		    c18: port displayController.display_output -> display.display_input;
+	end ElevatorSystem.impl;
+
+
+
+
+
+	
+	
+	
+	
+
+end elevatorpkg;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
