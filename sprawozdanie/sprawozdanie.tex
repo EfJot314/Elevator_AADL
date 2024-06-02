@@ -42,7 +42,245 @@ Cykl działania przykładowej windy:
 \end{enumerate}
 
 
-\section{Rozwiązanie}
+\section{Spis komponentów}
+
+\subsection{Komponenty typu \texttt{data}}
+
+\subsubsection{ElevatorState}
+
+Kod:
+
+    \begin{lstlisting}[basicstyle=\ttfamily, keywordstyle=\bfseries]
+data ElevatorState
+    properties
+        Data_Model::Enumerators => ("Idle", "MovingUp", "MovingDown",
+                                     "DoorOpening", "DoorClosing");
+        Data_Model::Data_Representation => Integer;
+        Data_Size => 4 Bytes;
+end ElevatorState;
+
+data implementation ElevatorState.impl
+end ElevatorState.impl;
+    \end{lstlisting}
+
+    \texttt{ElevatorState} to enumerator, który reprezentuje możliwe stany windy. Komponent ten jest używany do śledzenia aktualnego stanu windy w systemie. W podanym modelu zdefiniowano pięć stanów:
+
+    \begin{itemize}
+        \item \textbf{Idle:} winda jest bezczynna, nie porusza się i ma zamknięte drzwi.
+        \item \textbf{MovingUp:} Winda porusza się w górę.
+        \item \textbf{MovingDown:} Winda porusza się w dół.
+        \item \textbf{DoorOpening:} Drzwi windy są otwierane.
+        \item \textbf{DoorClosing:} Drzwi windy są zamykane.
+    \end{itemize}
+
+
+
+    \subsubsection{ElevatorAction}
+
+Kod:
+
+    \begin{lstlisting}[basicstyle=\ttfamily, keywordstyle=\bfseries]
+data ElevatorAction
+end ElevatorAction;
+
+data implementation ElevatorAction.impl
+    subcomponents
+        targetFloor: data FloorNumber;
+        direction: data MotorCommand;
+end ElevatorAction.impl;
+    \end{lstlisting}
+
+    \texttt{ElevatorAction} jest typem danych służącym do przekazywania informacji o żądanej akcji windy. W implementacji \texttt{ElevatorAction.impl}, widzimy, że składa się z dwóch subkomponentów:
+
+    \begin{itemize}
+        \item \textbf{targetFloor:} Określa piętro docelowe, na które winda ma się udać.
+        \item \textbf{direction:} Określa kierunek ruchu windy
+    \end{itemize}
+
+
+    \subsubsection{FloorNumber}
+
+    Kod:
+    
+        \begin{lstlisting}[basicstyle=\ttfamily, keywordstyle=\bfseries]
+data FloorNumber
+    properties
+        Data_Model::Data_Representation => Integer;
+        Data_Size => 4 Bytes;
+end FloorNumber;
+
+data implementation FloorNumber.impl
+end FloorNumber.impl;
+        \end{lstlisting}
+    
+        \texttt{FloorNumber} to typ danych reprezentujący numer piętra w budynku. W kontekście windy, \texttt{FloorNumber} jest używany do określania piętra docelowego, aktualnego piętra windy oraz do wyświetlania informacji o piętrze na panelu sterowania i wyświetlaczu w kabinie.
+    
+
+    \subsubsection{ButtonType}
+
+    Kod:
+    
+    \begin{lstlisting}[basicstyle=\ttfamily, keywordstyle=\bfseries]
+data ButtonType
+    properties
+        Data_Model::Enumerators => ("CallUp", "CallDown", "Cabin");
+        Data_Model::Data_Representation => Integer;
+        Data_Size => 4 Bytes;
+end ButtonType;
+
+data implementation ButtonType.impl
+end ButtonType.impl;
+    \end{lstlisting}
+
+    \texttt{ButtonType} to enumerator definiujący rodzaje przycisków obecnych w systemie windy. Ten typ danych jest używany w połączeniu z typem \texttt{FloorNumber} w strukturze \texttt{ButtonPress}, aby jednoznacznie określić, który przycisk został naciśnięty i na którym piętrze. Zawiera trzy wartości:
+
+    \begin{itemize}
+        \item \textbf{CallUp:} Przycisk wywołania windy na wyższe piętro, umieszczony na zewnątrz kabiny.
+        \item \textbf{CallDown:} Przycisk wywołania windy na niższe piętro, umieszczony na zewnątrz kabiny.
+        \item \textbf{Floor:} Przycisk wyboru konkretnego piętra, znajdujący się wewnątrz kabiny windy.
+    \end{itemize}
+
+
+    \subsubsection{ButtonPress}
+
+    Kod:
+    
+    \begin{lstlisting}[basicstyle=\ttfamily, keywordstyle=\bfseries]
+data ButtonPress
+    properties
+        Data_Size => 8 Bytes; 
+end ButtonPress;
+
+data implementation ButtonPress.impl
+    subcomponents
+        floor: data FloorNumber;
+        button_type: data ButtonType;
+end ButtonPress.impl;
+    \end{lstlisting}
+
+    \texttt{ButtonPress} to struktura reprezentująca zdarzenie naciśnięcia przycisku w windzie. Zawiera ona dwa elementy:
+
+    \begin{itemize}
+        \item \textbf{floor:} Przechowuje numer piętra, na którym przycisk został naciśnięty (lub na jakie ma się udać).
+        \item \textbf{button\_type:} Określa rodzaj naciśniętego przycisku (góra, dół lub piętro).
+    \end{itemize}
+
+    Te informacje są kluczowe dla systemu sterowania windą, ponieważ umożliwiają mu określenie, na które piętro winda powinna się udać i w jakim kierunku.
+
+
+
+    
+    \subsubsection{MotorCommand}
+
+    Kod:
+    
+    \begin{lstlisting}[basicstyle=\ttfamily, keywordstyle=\bfseries]
+data MotorCommand
+    properties
+        Data_Model::Enumerators => ("Up", "Down", "Stop");
+        Data_Model::Data_Representation => Integer;
+        Data_Size => 4 Bytes;
+end MotorCommand;
+
+data implementation MotorCommand.impl
+end MotorCommand.impl;
+    \end{lstlisting}
+
+    \texttt{MotorCommand} to enumerator definiujący możliwe polecenia sterujące dla silnika windy. Kontroler silnika interpretuje to polecenie i steruje silnikiem windy zgodnie z nim. Zawiera trzy wartości:
+
+    \begin{itemize}
+        \item \textbf{Up:} Polecenie ruchu windy w górę.
+        \item \textbf{Down:} Polecenie ruchu windy w dół.
+        \item \textbf{Stop:} Polecenie zatrzymania windy
+    \end{itemize}
+
+
+    \subsubsection{DoorCommand}
+
+    Kod:
+    
+    \begin{lstlisting}[basicstyle=\ttfamily, keywordstyle=\bfseries]
+data DoorCommand
+    properties
+        Data_Model::Enumerators => ("Open", "Close");
+        Data_Model::Data_Representation => Integer;
+        Data_Size => 4 Bytes;
+end DoorCommand;
+
+data implementation DoorCommand.impl
+end DoorCommand.impl;
+    \end{lstlisting}
+
+    \texttt{DoorCommand} to enumerator określający możliwe polecenia dla drzwi windy. Zawiera dwie wartości:
+
+    \begin{itemize}
+        \item \textbf{Open:} Polecenie otwarcia drzwi windy.
+        \item \textbf{Close:} Polecenie zamknięcia drzwi windy.
+    \end{itemize}
+
+
+
+    \subsubsection{DoorState}
+
+    Kod:
+    
+    \begin{lstlisting}[basicstyle=\ttfamily, keywordstyle=\bfseries]
+data DoorState
+    properties
+        Data_Model::Enumerators => ("Opened", "Closed", "Opening", "Closing");
+        Data_Model::Data_Representation => Integer;
+        Data_Size => 4 Bytes;
+end DoorState;
+
+data implementation DoorState.impl
+end DoorState.impl;
+    \end{lstlisting}
+
+    \texttt{DoorState} to enumerator reprezentujący możliwe stany drzwi windy. Zawiera on cztery wartości:
+
+    \begin{itemize}
+        \item \textbf{Opened:} Drzwi są całkowicie otwarte.
+        \item \textbf{Closed:} Drzwi są całkowicie zamknięte.
+        \item \textbf{Opening:} Drzwi są w trakcie otwierania.
+        \item \textbf{Closing:} Drzwi są w trakcie zamykania.
+    \end{itemize}
+
+
+
+    \subsection{Komponenty typu \texttt{thread}}
+
+    
+    \subsubsection{ButtonPanelThread}
+
+    Kod:
+    
+    \begin{lstlisting}[basicstyle=\ttfamily, keywordstyle=\bfseries]
+thread ButtonPanelThread
+    features
+        button_press_in: in event data port ButtonPress;
+        button_data_out: out data port ButtonPress;
+    properties
+        SEI::MIPSBudget => 15.0 mips;
+end ButtonPanelThread;
+
+thread implementation ButtonPanelThread.impl
+end ButtonPanelThread.impl;
+    \end{lstlisting}
+
+    \texttt{ButtonPanelThread} jest wątkiem odpowiedzialnym za obsługę panelu przycisków w windzie. Jego głównym zadaniem jest odczytywanie sygnałów z przycisków i przekazywanie informacji o naciśnięciach do \texttt{ButtonPanelController}. Wątek \texttt{ButtonPanelThread} jest kluczowym elementem systemu windy, ponieważ umożliwia pasażerom komunikowanie swoich żądań do systemu.
+
+    
+
+
+    
+        
+
+
+
+
+
+
+
 
 \subsection{Schemat rozwiązania}
 

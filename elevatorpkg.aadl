@@ -11,9 +11,12 @@ public
     data ElevatorState
         properties
             Data_Model::Enumerators => ("Idle", "MovingUp", "MovingDown", "DoorOpening", "DoorClosing");
-            Data_Model::base_type => (classifier (Base_Types::Integer));
-            Data_Size => 30 Bytes;
+            Data_Model::Data_Representation => Integer;
+            Data_Size => 4 Bytes;
     end ElevatorState;
+    
+    data implementation ElevatorState.impl
+    end ElevatorState.impl;
     
     data ElevatorAction
     end ElevatorAction;
@@ -26,16 +29,22 @@ public
 
     data FloorNumber
         properties
-            Data_Model::base_type => (classifier (Base_Types::Unsigned_16));  
+            Data_Model::Data_Representation => Integer;
             Data_Size => 4 Bytes;
     end FloorNumber;
+    
+    data implementation FloorNumber.impl
+    end FloorNumber.impl;
 
     data ButtonType
         properties
-            Data_Model::Enumerators => ("CallUp", "CallDown", "Floor");
-            Data_Model::base_type => (classifier (Base_Types::Integer));
+            Data_Model::Enumerators => ("CallUp", "CallDown", "Cabin");
+            Data_Model::Data_Representation => Integer;
             Data_Size => 4 Bytes;
     end ButtonType;
+    
+    data implementation ButtonType.impl
+    end ButtonType.impl;
     
     data ButtonPress
         properties
@@ -51,23 +60,32 @@ public
     data MotorCommand
         properties
             Data_Model::Enumerators => ("Up", "Down", "Stop");
-            Data_Model::base_type => (classifier (Base_Types::Integer));
+            Data_Model::Data_Representation => Integer;
             Data_Size => 4 Bytes;
     end MotorCommand;
+    
+    data implementation MotorCommand.impl
+    end MotorCommand.impl;
 
     data DoorCommand
         properties
             Data_Model::Enumerators => ("Open", "Close");
-            Data_Model::base_type => (classifier (Base_Types::Integer));
+            Data_Model::Data_Representation => Integer;
             Data_Size => 4 Bytes;
     end DoorCommand;
+    
+    data implementation DoorCommand.impl
+    end DoorCommand.impl;
 
     data DoorState
         properties
             Data_Model::Enumerators => ("Opened", "Closed", "Opening", "Closing");
-            Data_Model::base_type => (classifier (Base_Types::Integer));
+            Data_Model::Data_Representation => Integer;
             Data_Size => 4 Bytes;
     end DoorState;
+    
+    data implementation DoorState.impl
+    end DoorState.impl;
 
     -- THREADS --
 
