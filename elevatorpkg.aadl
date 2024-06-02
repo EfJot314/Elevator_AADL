@@ -357,7 +357,8 @@ public
             displayController: process DisplayController.impl;
             cabinController: process CabinController.impl;
             motorController: process MotorController.impl;
-
+        
+    	
 
 		connections
 		    -- ButtonPanel connections
@@ -391,6 +392,15 @@ public
 		
 		    -- Display connection
 		    c18: port displayController.display_output -> display.display_input;
+		   
+    	properties
+    		-- Bindings
+    		Actual_Processor_Binding => (reference(cpu)) applies to buttonPanelController;
+    		Actual_Processor_Binding => (reference(cpu)) applies to elevatorLogicController;
+    		Actual_Processor_Binding => (reference(cpu)) applies to displayController;
+    		Actual_Processor_Binding => (reference(cpu)) applies to cabinController;
+    		Actual_Processor_Binding => (reference(cpu)) applies to motorController;
+		    
 	end ElevatorSystem.impl;
 
 
