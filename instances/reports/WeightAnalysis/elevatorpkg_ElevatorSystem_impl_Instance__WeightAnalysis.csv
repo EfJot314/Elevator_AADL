@@ -1,0 +1,12 @@
+Weight totals Report
+
+can_bus: [L] Sum of weights / gross weight is 0.075 kg (no limit specified)
+hwc: [L] Sum of weights / gross weight is 0.075 kg (no limit specified)
+button_panel: [L] Sum of weights / gross weight is 1.000 kg (no limit specified)
+cabin: [L] Sum of weights / gross weight is 150.000 kg (no limit specified)
+motor: [L] Sum of weights / gross weight is 5.000 kg (no limit specified)
+elevatorController: [L] Sum of weights / gross weight is 0.500 kg (no limit specified)
+display: [L] Sum of weights / gross weight is 0.250 kg (no limit specified)
+ram: [L] Sum of weights / gross weight is 0.025 kg (no limit specified)
+cpu: [L] Sum of weights / gross weight is 0.050 kg (no limit specified)
+ElevatorSystem_impl_Instance: [L] Sum of weights / gross weight is 156.975 kg (no limit specified)

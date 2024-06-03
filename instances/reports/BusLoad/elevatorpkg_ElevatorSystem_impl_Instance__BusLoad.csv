@@ -1,0 +1,34 @@
+Bus load analysis of ElevatorSystem_impl_Instance
+
+
+"Physical Bus","Capacity (KB/s)","Budget (KB/s)","Required Budget (KB/s)","Actual (KB/s)"
+"can_bus","125.0","0.0","0.0","0.08"
+"hwc","125000.0","0.0","0.0","0.0"
+
+"Bus can_bus has data overhead of 0 bytes"
+"Bound Virtual Bus/Connection","Capacity (KB/s)","Budget (KB/s)","Required Budget (KB/s)","Actual (KB/s)"
+"button_panel.button_press -> buttonPanelController.buttonPanelThread.button_press_in","","0.0","","0.0"
+"elevatorController.motor_command -> motorController.motorThread.motor_state_in","","0.0","","0.04"
+"elevatorController.motor_state_send -> elevatorLogicController.transformThread.motor_state_in","","0.0","","0.04"
+"elevatorLogicController.transformThread.motor_state_out -> elevatorController.action_receive","","0.0","","0.0"
+
+"WARNING: Bus can_bus has no bandwidth budget"
+
+"Connection button_panel.button_press -> buttonPanelController.buttonPanelThread.button_press_in bound to can_bus"
+"WARNING: Connection button_panel.button_press -> buttonPanelController.buttonPanelThread.button_press_in has no bandwidth budget"
+
+"Connection elevatorController.motor_command -> motorController.motorThread.motor_state_in bound to can_bus"
+"WARNING: Connection elevatorController.motor_command -> motorController.motorThread.motor_state_in has no bandwidth budget"
+
+"Connection elevatorController.motor_state_send -> elevatorLogicController.transformThread.motor_state_in bound to can_bus"
+"WARNING: Connection elevatorController.motor_state_send -> elevatorLogicController.transformThread.motor_state_in has no bandwidth budget"
+
+"Connection elevatorLogicController.transformThread.motor_state_out -> elevatorController.action_receive bound to can_bus"
+"WARNING: Connection elevatorLogicController.transformThread.motor_state_out -> elevatorController.action_receive has no bandwidth budget"
+
+"Bus hwc has data overhead of 0 bytes"
+"Bound Virtual Bus/Connection","Capacity (KB/s)","Budget (KB/s)","Required Budget (KB/s)","Actual (KB/s)"
+
+"WARNING: Bus hwc has no bandwidth budget"
+
+

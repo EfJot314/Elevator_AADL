@@ -648,6 +648,8 @@ device ButtonPanel
     features
         button_press: out data port ButtonPress;
         bus_access: requires bus access CANBus;
+    properties
+        SEI::GrossWeight => 1.0kg;
 end ButtonPanel;
 
 device implementation ButtonPanel.impl
@@ -669,6 +671,8 @@ device Cabin
         door_state: out data port DoorState;
         door_open: in event port;
         door_close: in event port;
+    properties
+        SEI::GrossWeight => 150.0kg;
 end Cabin;
 
 device implementation Cabin.impl

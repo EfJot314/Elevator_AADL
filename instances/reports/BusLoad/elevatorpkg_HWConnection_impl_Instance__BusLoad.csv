@@ -1,0 +1,12 @@
+Bus load analysis of HWConnection_impl_Instance
+
+
+"Physical Bus","Capacity (KB/s)","Budget (KB/s)","Required Budget (KB/s)","Actual (KB/s)"
+"HWConnection_impl_Instance","125000.0","0.0","0.0","0.0"
+
+"Bus HWConnection_impl_Instance has data overhead of 0 bytes"
+"Bound Virtual Bus/Connection","Capacity (KB/s)","Budget (KB/s)","Required Budget (KB/s)","Actual (KB/s)"
+
+"WARNING: Bus HWConnection_impl_Instance has no bandwidth budget"
+
+

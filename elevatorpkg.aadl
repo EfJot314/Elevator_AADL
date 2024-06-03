@@ -288,6 +288,8 @@ public
         features
             button_press: out data port ButtonPress;
             bus_access: requires bus access CANBus;
+    	properties
+    		SEI::GrossWeight => 1.0kg;
     end ButtonPanel;
 
     device implementation ButtonPanel.impl
@@ -298,6 +300,8 @@ public
             door_state: out data port DoorState;
             door_open: in event port;
             door_close: in event port;
+        properties
+        	SEI::GrossWeight => 150.0kg;
     end Cabin;
 
     device implementation Cabin.impl
@@ -333,6 +337,8 @@ public
     device Display
         features
             display_input: in data port FloorNumber; 
+    	properties
+    		SEI::GrossWeight => 0.25kg;
     end Display;
 
     device implementation Display.impl
@@ -423,6 +429,9 @@ public
     		Actual_Processor_Binding => (reference(cpu)) applies to displayController;
     		Actual_Processor_Binding => (reference(cpu)) applies to cabinController;
     		Actual_Processor_Binding => (reference(cpu)) applies to motorController;
+    		
+    		--Other
+    		SEI::MIPSCapacity => 2.4 mips;
 		    
 	end ElevatorSystem.impl;
 

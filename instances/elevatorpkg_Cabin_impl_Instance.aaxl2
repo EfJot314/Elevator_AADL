@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="ASCII"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aadl2="http://aadl.info/AADL/2.0" xmlns:instance="http://aadl.info/AADL/2.0/instance">
   <instance:SystemInstance name="Cabin_impl_Instance" category="device">
+    <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
+      <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.GrossWeight"/>
+      <ownedValue>
+        <ownedValue xsi:type="aadl2:RealLiteral" value="150.0">
+          <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.0/@ownedLiteral.0"/>
+        </ownedValue>
+      </ownedValue>
+      <propertyAssociation href="../elevatorpkg.aadl#/0/@ownedPublicSection/@ownedClassifier.46/@ownedPropertyAssociation.0"/>
+    </ownedPropertyAssociation>
     <featureInstance name="door_state" direction="out" type="/1">
       <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
         <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Enumerators"/>
@@ -12,18 +21,16 @@
             <ownedListElement xsi:type="aadl2:StringLiteral" value="Closing"/>
           </ownedValue>
         </ownedValue>
-        <propertyAssociation href="../elevatorpkg.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedPropertyAssociation.0"/>
+        <propertyAssociation href="../elevatorpkg.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedPropertyAssociation.0"/>
       </ownedPropertyAssociation>
       <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
-        <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Base_Type"/>
+        <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
         <ownedValue>
-          <ownedValue xsi:type="aadl2:ListValue">
-            <ownedListElement xsi:type="aadl2:ClassifierValue">
-              <classifier xsi:type="aadl2:DataType" href="platform:/plugin/org.osate.contribution.sei/resources/packages/Base_Types.aadl#Base_Types.Integer"/>
-            </ownedListElement>
+          <ownedValue xsi:type="aadl2:NamedValue">
+            <namedValue xsi:type="aadl2:EnumerationLiteral" href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.6"/>
           </ownedValue>
         </ownedValue>
-        <propertyAssociation href="../elevatorpkg.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedPropertyAssociation.1"/>
+        <propertyAssociation href="../elevatorpkg.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedPropertyAssociation.1"/>
       </ownedPropertyAssociation>
       <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
         <property href="platform:/plugin/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Memory_Properties.aadl#Memory_Properties.Data_Size"/>
@@ -32,15 +39,15 @@
             <unit href="platform:/plugin/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.15/@ownedLiteral.1"/>
           </ownedValue>
         </ownedValue>
-        <propertyAssociation href="../elevatorpkg.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedPropertyAssociation.2"/>
+        <propertyAssociation href="../elevatorpkg.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedPropertyAssociation.2"/>
       </ownedPropertyAssociation>
-      <feature xsi:type="aadl2:DataPort" href="../elevatorpkg.aadl#/0/@ownedPublicSection/@ownedClassifier.40/@ownedDataPort.0"/>
+      <feature xsi:type="aadl2:DataPort" href="../elevatorpkg.aadl#/0/@ownedPublicSection/@ownedClassifier.46/@ownedDataPort.0"/>
     </featureInstance>
     <featureInstance name="door_open" category="eventPort">
-      <feature xsi:type="aadl2:EventPort" href="../elevatorpkg.aadl#/0/@ownedPublicSection/@ownedClassifier.40/@ownedEventPort.0"/>
+      <feature xsi:type="aadl2:EventPort" href="../elevatorpkg.aadl#/0/@ownedPublicSection/@ownedClassifier.46/@ownedEventPort.0"/>
     </featureInstance>
     <featureInstance name="door_close" category="eventPort">
-      <feature xsi:type="aadl2:EventPort" href="../elevatorpkg.aadl#/0/@ownedPublicSection/@ownedClassifier.40/@ownedEventPort.1"/>
+      <feature xsi:type="aadl2:EventPort" href="../elevatorpkg.aadl#/0/@ownedPublicSection/@ownedClassifier.46/@ownedEventPort.1"/>
     </featureInstance>
     <classifier xsi:type="aadl2:DeviceImplementation" href="../elevatorpkg.aadl#elevatorpkg.Cabin.impl"/>
     <systemOperationMode name="No Modes"/>
@@ -57,18 +64,16 @@
           <ownedListElement xsi:type="aadl2:StringLiteral" value="Closing"/>
         </ownedValue>
       </ownedValue>
-      <propertyAssociation href="../elevatorpkg.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedPropertyAssociation.0"/>
+      <propertyAssociation href="../elevatorpkg.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedPropertyAssociation.0"/>
     </ownedPropertyAssociation>
     <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
-      <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Base_Type"/>
+      <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#Data_Model.Data_Representation"/>
       <ownedValue>
-        <ownedValue xsi:type="aadl2:ListValue">
-          <ownedListElement xsi:type="aadl2:ClassifierValue">
-            <classifier xsi:type="aadl2:DataType" href="platform:/plugin/org.osate.contribution.sei/resources/packages/Base_Types.aadl#Base_Types.Integer"/>
-          </ownedListElement>
+        <ownedValue xsi:type="aadl2:NamedValue">
+          <namedValue xsi:type="aadl2:EnumerationLiteral" href="platform:/plugin/org.osate.contribution.sei/resources/properties/Data_Model.aadl#/0/@ownedProperty.4/@ownedPropertyType/@ownedLiteral.6"/>
         </ownedValue>
       </ownedValue>
-      <propertyAssociation href="../elevatorpkg.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedPropertyAssociation.1"/>
+      <propertyAssociation href="../elevatorpkg.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedPropertyAssociation.1"/>
     </ownedPropertyAssociation>
     <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
       <property href="platform:/plugin/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/Memory_Properties.aadl#Memory_Properties.Data_Size"/>
@@ -77,7 +82,7 @@
           <unit href="platform:/plugin/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.15/@ownedLiteral.1"/>
         </ownedValue>
       </ownedValue>
-      <propertyAssociation href="../elevatorpkg.aadl#/0/@ownedPublicSection/@ownedClassifier.9/@ownedPropertyAssociation.2"/>
+      <propertyAssociation href="../elevatorpkg.aadl#/0/@ownedPublicSection/@ownedClassifier.14/@ownedPropertyAssociation.2"/>
     </ownedPropertyAssociation>
     <classifier xsi:type="aadl2:DataType" href="../elevatorpkg.aadl#elevatorpkg.DoorState"/>
   </instance:ComponentInstance>

@@ -8,10 +8,10 @@
           <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.0/@ownedLiteral.0"/>
         </ownedValue>
       </ownedValue>
-      <propertyAssociation href="../elevatorpkg.aadl#/0/@ownedPublicSection/@ownedClassifier.36/@ownedPropertyAssociation.0"/>
+      <propertyAssociation href="../elevatorpkg.aadl#/0/@ownedPublicSection/@ownedClassifier.42/@ownedPropertyAssociation.0"/>
     </ownedPropertyAssociation>
     <featureInstance name="hwcAccess" category="busAccess" type="/1">
-      <feature xsi:type="aadl2:BusAccess" href="../elevatorpkg.aadl#/0/@ownedPublicSection/@ownedClassifier.36/@ownedBusAccess.0"/>
+      <feature xsi:type="aadl2:BusAccess" href="../elevatorpkg.aadl#/0/@ownedPublicSection/@ownedClassifier.42/@ownedBusAccess.0"/>
     </featureInstance>
     <classifier xsi:type="aadl2:MemoryImplementation" href="../elevatorpkg.aadl#elevatorpkg.RAM.impl"/>
     <systemOperationMode name="No Modes"/>
@@ -25,7 +25,7 @@
           <unit href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#/0/@ownedPropertyType.0/@ownedLiteral.0"/>
         </ownedValue>
       </ownedValue>
-      <propertyAssociation href="../elevatorpkg.aadl#/0/@ownedPublicSection/@ownedClassifier.34/@ownedPropertyAssociation.0"/>
+      <propertyAssociation href="../elevatorpkg.aadl#/0/@ownedPublicSection/@ownedClassifier.40/@ownedPropertyAssociation.0"/>
     </ownedPropertyAssociation>
     <ownedPropertyAssociation xsi:type="instance:PropertyAssociationInstance">
       <property href="platform:/plugin/org.osate.contribution.sei/resources/properties/SEI.aadl#SEI.BandWidthCapacity"/>
@@ -34,7 +34,7 @@
           <unit href="platform:/plugin/org.osate.aadl2.contrib/resources/properties/Predeclared_Property_Sets/AADL_Project.aadl#/0/@ownedPropertyType.17/@ownedLiteral.2"/>
         </ownedValue>
       </ownedValue>
-      <propertyAssociation href="../elevatorpkg.aadl#/0/@ownedPublicSection/@ownedClassifier.34/@ownedPropertyAssociation.1"/>
+      <propertyAssociation href="../elevatorpkg.aadl#/0/@ownedPublicSection/@ownedClassifier.40/@ownedPropertyAssociation.1"/>
     </ownedPropertyAssociation>
     <classifier xsi:type="aadl2:BusType" href="../elevatorpkg.aadl#elevatorpkg.HWConnection"/>
   </instance:ComponentInstance>
