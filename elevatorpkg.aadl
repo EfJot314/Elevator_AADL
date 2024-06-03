@@ -94,7 +94,7 @@ public
             button_press_in: in event data port ButtonPress;
             button_data_out: out data port ButtonPress;
         properties
-            SEI::MIPSBudget => 15.0 mips;
+            SEI::MIPSBudget => 0.8 mips;
     end ButtonPanelThread;
     
     thread implementation ButtonPanelThread.impl
@@ -105,7 +105,7 @@ public
             button_data_in: in data port ButtonPress;
             action_data_out: out data port ElevatorAction;
         properties
-            SEI::MIPSBudget => 15.0 mips;
+            SEI::MIPSBudget => 0.8 mips;
     end ElevatorLogicThread;
     
     thread implementation ElevatorLogicThread.impl
@@ -120,7 +120,7 @@ public
 	        floor_data_out: out data port FloorNumber;
 	        door_command_out: out data port DoorCommand;
 	    properties
-	        SEI::MIPSBudget => 15.0 mips;
+	        SEI::MIPSBudget => 0.8 mips;
 	end ElevatorLogicTransformThread;
     
     thread implementation ElevatorLogicTransformThread.impl
@@ -132,7 +132,7 @@ public
             motor_state_out: out data port ElevatorState;
             motor_command_out: out data port MotorCommand;
         properties
-            SEI::MIPSBudget => 10.0 mips;
+            SEI::MIPSBudget => 0.8 mips;
     end MotorControlThread;
     
     thread implementation MotorControlThread.impl
@@ -143,7 +143,7 @@ public
             floor_data_in: in data port FloorNumber;
             display_output: out data port FloorNumber;
         properties
-            SEI::MIPSBudget => 5.0 mips; 
+            SEI::MIPSBudget => 0.8 mips;
     end DisplayThread;
     
     thread implementation DisplayThread.impl
@@ -156,7 +156,7 @@ public
             door_open: out event port;
             door_close: out event port;
         properties
-            SEI::MIPSBudget => 5.0 mips; 
+            SEI::MIPSBudget => 0.8 mips;
     end CabinControlThread;
     
     thread implementation CabinControlThread.impl
@@ -307,6 +307,8 @@ public
         features
             motor_state_in: in data port ElevatorState;
             motor_state_out: out data port ElevatorState;
+        properties
+        	SEI::GrossWeight => 5.0kg;
     end Motor;
 
     device implementation Motor.impl
@@ -322,7 +324,7 @@ public
 	    properties
 	        SEI::GrossWeight => 0.5kg;
 	        Period => 100ms;
-	        Dispatch_Protocol => Sporadic;
+	        Dispatch_Protocol => Periodic;
 	end ElevatorController;
 
     device implementation ElevatorController.impl
@@ -342,9 +344,12 @@ public
         features
             canBusAccess: requires bus access CANBus;
             hwcAccess: requires bus access HWConnection;
-        properties
-            SEI::MIPSCapacity => 144.4 mips;
-            SEI::GrossWeight => 0.05kg;
+    	properties
+    		Scheduling_Protocol => (Round_Robin_Protocol);
+	        Clock_Period => 1 ms;	
+	        Timing_Properties::Processor_Capacity => 1.0 MIPS;
+	        SEI::MIPSCapacity => 1.2 mips;
+	        SEI::GrossWeight => 0.05kg;
     end CPU;
 
     processor implementation CPU.impl

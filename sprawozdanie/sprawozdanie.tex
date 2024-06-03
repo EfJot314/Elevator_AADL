@@ -73,7 +73,7 @@ end ElevatorState.impl;
         \item \textbf{DoorClosing:} Drzwi windy są zamykane.
     \end{itemize}
 
-
+    \newpage
 
     \subsubsection{ElevatorAction}
 
@@ -168,7 +168,7 @@ end ButtonPress.impl;
     Te informacje są kluczowe dla systemu sterowania windą, ponieważ umożliwiają mu określenie, na które piętro winda powinna się udać i w jakim kierunku.
 
 
-
+    \newpage
     
     \subsubsection{MotorCommand}
 
@@ -218,7 +218,7 @@ end DoorCommand.impl;
         \item \textbf{Close:} Polecenie zamknięcia drzwi windy.
     \end{itemize}
 
-
+    \newpage
 
     \subsubsection{DoorState}
 
@@ -260,7 +260,7 @@ thread ButtonPanelThread
         button_press_in: in event data port ButtonPress;
         button_data_out: out data port ButtonPress;
     properties
-        SEI::MIPSBudget => 15.0 mips;
+        SEI::MIPSBudget => 0.8 mips;
 end ButtonPanelThread;
 
 thread implementation ButtonPanelThread.impl
@@ -280,7 +280,7 @@ thread ElevatorLogicThread
         button_data_in: in data port ButtonPress;
         action_data_out: out data port ElevatorAction;
     properties
-        SEI::MIPSBudget => 15.0 mips;
+        SEI::MIPSBudget => 0.8 mips;
 end ElevatorLogicThread;
 
 thread implementation ElevatorLogicThread.impl
@@ -304,7 +304,7 @@ thread ElevatorLogicTransformThread
         floor_data_out: out data port FloorNumber;
         door_command_out: out data port DoorCommand;
     properties
-        SEI::MIPSBudget => 15.0 mips;
+        SEI::MIPSBudget => 0.8 mips;
 end ElevatorLogicTransformThread;
 
 thread implementation ElevatorLogicTransformThread.impl
@@ -314,6 +314,7 @@ end ElevatorLogicTransformThread.impl;
     \texttt{ElevatorLogicTransformThread} jest wątkiem odpowiedzialnym za przekształcanie akcji windy (\texttt{ElevatorAction}) na konkretne polecenia sterujące dla silnika (\texttt{MotorCommand}) i drzwi (\texttt{DoorCommand}). Dodatkowo, wątek ten wysyła informację do kontrolera wyświetlacza (\texttt{DisplayController}).
 
 
+    \newpage
 
     \subsubsection{MotorControlThread}
 
@@ -326,7 +327,7 @@ thread MotorControlThread
         motor_state_out: out data port ElevatorState;
         motor_command_out: out data port MotorCommand;
     properties
-        SEI::MIPSBudget => 10.0 mips;
+        SEI::MIPSBudget => 0.8 mips;
 end MotorControlThread;
 
 thread implementation MotorControlThread.impl
@@ -346,7 +347,7 @@ thread DisplayThread
         floor_data_in: in data port FloorNumber;
         display_output: out data port FloorNumber;
     properties
-        SEI::MIPSBudget => 5.0 mips; 
+        SEI::MIPSBudget => 0.8 mips; 
 end DisplayThread;
 
 thread implementation DisplayThread.impl
@@ -356,7 +357,7 @@ end DisplayThread.impl;
     \texttt{DisplayThread} jest wątkiem odpowiedzialnym za aktualizację wyświetlacza windy. Odbiera on informację o aktualnym piętrze od \texttt{DisplayController} i wyświetla ją na panelu w kabinie windy. Wątek ten działa w sposób ciągły, aktualizując wyświetlacz za każdym razem, gdy winda zmienia piętro. Jego zadaniem jest informowanie, za pomocą wyświetlacza (\texttt{Display}), pasażerów o aktualnym położeniu windy.
 
 
-
+    \newpage
 
     \subsubsection{CabinControlThread}
 
@@ -370,7 +371,7 @@ thread CabinControlThread
         door_open: out event port;
         door_close: out event port;
     properties
-        SEI::MIPSBudget => 5.0 mips; 
+        SEI::MIPSBudget => 0.8 mips;
 end CabinControlThread;
 
 thread implementation CabinControlThread.impl
@@ -445,7 +446,7 @@ end ElevatorLogicController.impl;
 
 
 
-
+    \newpage
 
     \subsubsection{DisplayController}
 
@@ -553,6 +554,8 @@ end CANBus.impl;
     \texttt{CANBus} jest magistralą komunikacyjną typu CAN (Controller Area Network). Służy ona do wymiany danych między różnymi komponentami systemu windy. Magistrala CAN zapewnia niezawodną i szybką komunikację w czasie rzeczywistym, co jest kluczowe dla prawidłowego działania systemu windy.
 
 
+    \newpage
+
     \subsubsection{HWConnection}
 
     Kod:
@@ -602,6 +605,8 @@ end RAM.impl;
 
 
 
+    \newpage
+
     \subsection{Komponenty typu \texttt{processor}}
 
     
@@ -615,7 +620,10 @@ processor CPU
         canBusAccess: requires bus access CANBus;
         hwcAccess: requires bus access HWConnection;
     properties
-        SEI::MIPSCapacity => 144.4 mips;
+        Scheduling_Protocol => (Round_Robin_Protocol);
+        Clock_Period => 1 ms;	
+        Timing_Properties::Processor_Capacity => 1.0 MIPS;
+        SEI::MIPSCapacity => 1.2 mips;
         SEI::GrossWeight => 0.05kg;
 end CPU;
 
@@ -649,6 +657,8 @@ end ButtonPanel.impl;
     \texttt{ButtonPanel} jest urządzeniem, które reprezentuje panel przycisków wewnątrz i na zewnątrz windy. Zadaniem tego panelu jest umożliwienie pasażerom wydawanie poleceń windzie, takich jak wybór piętra docelowego czy wezwanie windy na dane piętro.
 
 
+    \newpage
+
     \subsubsection{Cabin}
 
     Kod:
@@ -679,6 +689,8 @@ device Motor
     features
         motor_state_in: in data port ElevatorState;
         motor_state_out: out data port ElevatorState;
+    properties
+        SEI::GrossWeight => 5.0kg;
 end Motor;
 
 device implementation Motor.impl
@@ -721,7 +733,7 @@ device ElevatorController
     properties
         SEI::GrossWeight => 0.5kg;
         Period => 100ms;
-        Dispatch_Protocol => Sporadic;
+        Dispatch_Protocol => Periodic;
 end ElevatorController;
 
 device implementation ElevatorController.impl
@@ -802,6 +814,9 @@ system implementation ElevatorSystem.impl
         Actual_Processor_Binding => (reference(cpu)) applies to displayController;
         Actual_Processor_Binding => (reference(cpu)) applies to cabinController;
         Actual_Processor_Binding => (reference(cpu)) applies to motorController;
+
+        --Other
+    	SEI::MIPSCapacity => 2.4 mips;
         
 end ElevatorSystem.impl;
     \end{lstlisting}
