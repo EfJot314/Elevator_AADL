@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1717355900.75675 "/home/filipjedrzejewski/Downloads/osate2-2.13.0-vfinal-linux.gtk.x86_64/workspace/Elevator/sprawozdanie/sprawozdanie.tex" "sprawozdanie.pdf" "sprawozdanie" 1717355901.44287 0
-  "/home/filipjedrzejewski/Downloads/osate2-2.13.0-vfinal-linux.gtk.x86_64/workspace/Elevator/sprawozdanie/sprawozdanie.tex" 1717355900.54594 10298 aebf71920231736b346f0bd61bbf91fc ""
+["pdflatex"] 1717414650.70416 "/home/filipjedrzejewski/Downloads/osate2-2.13.0-vfinal-linux.gtk.x86_64/workspace/Elevator/sprawozdanie/sprawozdanie.tex" "sprawozdanie.pdf" "sprawozdanie" 1717414651.62382 0
+  "/home/filipjedrzejewski/Downloads/osate2-2.13.0-vfinal-linux.gtk.x86_64/workspace/Elevator/sprawozdanie/sprawozdanie.tex" 1717414649.6146 29571 28ff1b6ae94cd19cc743d2cbc83443b6 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -87,9 +87,9 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1715938305.19701 4602002 62dba5fc29055c16380d7393a2adb07a ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1715937784 7753326 34eb8f9d5f9a0d53cd36a23259c4d795 ""
   "images/schema.png" 1717351374.71884 118319 81652820a6df8f8ecadcb30f8299223b ""
-  "sprawozdanie.aux" 1717355901.34695 2455 7a012215fb8314df57e9f6e05490cf23 "pdflatex"
-  "sprawozdanie.out" 1717355901.34795 1945 fc87cefcf1c0e563f1cefbbdcf64f15b "pdflatex"
-  "sprawozdanie.tex" 1717355900.54594 10298 aebf71920231736b346f0bd61bbf91fc ""
+  "sprawozdanie.aux" 1717414651.48663 5912 aa0c8c4a9f6f3702229b48f2ed92bd14 "pdflatex"
+  "sprawozdanie.out" 1717414651.48763 5672 f84263d1b0a228b1753f435e5978ce39 "pdflatex"
+  "sprawozdanie.tex" 1717414649.6146 29571 28ff1b6ae94cd19cc743d2cbc83443b6 ""
   (generated)
   "sprawozdanie.aux"
   "sprawozdanie.log"
