@@ -1,0 +1,16 @@
+Check connection binding consistency Report
+
+ERROR:  logicThread.action_data_out -> transformThread.action_data_in: Hardware (processor or device) of connection source and destination are not physically connected by bus.
+ERROR:  button_panel.button_press -> buttonPanelController.buttonPanelThread.button_press_in: Hardware (processor or device) of connection source and destination are not physically connected by bus.
+ERROR:  cabin.door_state -> cabinController.cabinThread.door_state_in: Hardware (processor or device) of connection source and destination are not physically connected by bus.
+ERROR:  motor.motor_state_out -> elevatorController.motor_state_receive: Hardware (processor or device) of connection source and destination are not physically connected by bus.
+ERROR:  elevatorController.motor_command -> motorController.motorThread.motor_state_in: Hardware (processor or device) of connection source and destination are not physically connected by bus.
+ERROR:  elevatorController.motor_state_send -> elevatorLogicController.transformThread.motor_state_in: Hardware (processor or device) of connection source and destination are not physically connected by bus.
+ERROR:  buttonPanelController.buttonPanelThread.button_data_out -> elevatorLogicController.logicThread.button_data_in: Hardware (processor or device) of connection source and destination are not physically connected by bus.
+ERROR:  elevatorLogicController.transformThread.motor_state_out -> elevatorController.action_receive: Hardware (processor or device) of connection source and destination are not physically connected by bus.
+ERROR:  elevatorLogicController.transformThread.floor_data_out -> displayController.displayThread.floor_data_in: Hardware (processor or device) of connection source and destination are not physically connected by bus.
+ERROR:  elevatorLogicController.transformThread.door_command_out -> cabinController.cabinThread.door_command_in: Hardware (processor or device) of connection source and destination are not physically connected by bus.
+ERROR:  displayController.displayThread.display_output -> display.display_input: Hardware (processor or device) of connection source and destination are not physically connected by bus.
+ERROR:  cabinController.cabinThread.door_open -> cabin.door_open: Hardware (processor or device) of connection source and destination are not physically connected by bus.
+ERROR:  cabinController.cabinThread.door_close -> cabin.door_close: Hardware (processor or device) of connection source and destination are not physically connected by bus.
+ERROR:  motorController.motorThread.motor_state_out -> motor.motor_state_in: Hardware (processor or device) of connection source and destination are not physically connected by bus.
